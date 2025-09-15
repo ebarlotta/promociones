@@ -23,3 +23,8 @@ Route::middleware(['auth:sanctum', 'verified', 'permission:manage users'])
     ->get('/admin/users', function () {
         return view('admin.users');
 });
+
+Route::get('/logout', function () {
+    Auth::logout();
+    return redirect('/');
+});
