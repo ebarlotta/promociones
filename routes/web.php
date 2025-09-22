@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Livewire\ConfiguracionesComponent;
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,3 +29,5 @@ Route::get('/logout', function () {
     Auth::logout();
     return redirect('/');
 });
+
+Route::get('segundo',ConfiguracionesComponent::class)->name('segundo');

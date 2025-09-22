@@ -22,9 +22,9 @@ return new class extends Migration
             $table->date('PeriodoHasta');
             $table->double('TopePorPeriodo');
             $table->string('TopePorTipoPeriodo');
-            $table->unsignedBigInteger('producto_id');
-            $table->unsignedBigInteger('formadepago_id');
-            $table->unsignedBigInteger('mediodepago_id');
+            // $table->unsignedBigInteger('producto_id');
+            // $table->unsignedBigInteger('mediodepago_id');
+            // $table->unsignedBigInteger('formadepago_id');
             $table->string('Requisito');
             $table->string('DíaDeLaSemana');
             $table->string('Moneda');
@@ -34,9 +34,9 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreign('zona_id')->references('id')->on('zonas');
-            $table->foreign('producto_id')->references('id')->on('productos');
-            $table->foreign('formadepago_id')->references('id')->on('formadepagos');
-            $table->foreign('mediodepago_id')->references('id')->on('mediodepagos');
+            // $table->foreign('formadepago_id')->references('id')->on('formadepagos');
+            // $table->foreign('producto_id')->references('id')->on('productos');
+            // $table->foreign('mediodepago_id')->references('id')->on('mediodepagos');
             
         });
     }

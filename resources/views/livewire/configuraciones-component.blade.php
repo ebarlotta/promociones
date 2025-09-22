@@ -1,4 +1,5 @@
-<x-app-layout>
+<div>
+
     {{-- <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
@@ -142,8 +143,8 @@
                 border-radius: 8px;
                 border-left: 4px solid #2575fc;
                 overflow-y: auto;
-    max-height: 100px;
-    height: auto;
+                max-height: 100px;
+                height: auto;
             }
             
             .item-details p {
@@ -549,13 +550,49 @@
             <div class="modal-dialog modal-80" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">{{ $titulo }}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="border-radius: 20px;">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    ...
+                <div class="modal-body flex h-56 flex-col justify-between ">
+                    <div><h2>Listado</h2>
+                        <div class="flex d-flex">
+                            <div class="col-3">Nombre</div>
+                            <div class="col-3">Dirección</div>
+                            <div class="col-3">Ubicación</div>
+                            <div class="col-3">Opciones</div>
+                        </div>
+
+                        <div class="scroll-container" style="max-height: 400px; overflow-y: auto;">
+                            @foreach ($Listado as $item)
+                                <div class="flex d-flex" style="border: black solid 1px">
+                                    <div class="col-3">{{ $item->nombre }}</div>
+                                    <div class="col-3">{{ $item->direccion }}</div>
+                                    <div class="col-3">{{ $item->ubicacionGPS }}</div>
+                                    <div class="col-3 flex d-flex">
+                                        <input class="form-control btn btn-warning h-7 col-6 m-1" value="Modificar">
+                                        <input class="form-control btn btn-danger h-7 col-6 m-1" value="Eliminar" wire:click="Eliminar({{ $item->id }})">
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    <div><h2>Agregar</h2>
+                        <div class="flex d-flex">
+                            <div class="col-4">Nombre</div>
+                            <div class="col-4">Dirección</div>
+                            <div class="col-4">Ubicación</div>
+                        </div>
+                        <div class="flex d-flex">
+                            <input type="text" class="form-control col-4" wire:model="nombre_agregar">
+                            <input type="text" class="form-control col-4" wire:model="direccion_agregar">
+                            <input type="text" class="form-control col-4" wire:model="ubicaciongps_agregar">
+                        </div>
+                        <div>
+                            <input type="button" class="form-control btn btn-info col-3" value="Agregar" wire:click="Agregar('{{ $titulo }}')">
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" style="border-radius: 20px;">Close</button>
@@ -582,4 +619,6 @@
             </div>
         </div>
     </div> --}}
-</x-app-layout>
+
+
+</div>
