@@ -7,13 +7,15 @@ use Livewire\Component;
 use App\Models\zona;
 use App\Models\mediodepago;
 use App\Models\formadepago;
+use App\Models\Producto;
 
 class ConfiguracionesComponent extends Component
 {
-    public $Zonas, $TipoDeCompra, $MontoFijo, $PorcentajeDescuento, $TopePorTransaccion, $Periodos, $TopePorPeriodo, $TopePorTipoDePeriodo, $FormaDePago, $MedioDePago, $Requisito, $DíaDeLaSemana, $Moneda, $Retira, $Reintegro;
+    public $Zonas, $TipoDeCompra, $MontoFijo, $PorcentajeDescuento, $TopePorTransaccion, $Periodos, $TopePorPeriodo, $TopePorTipoDePeriodo, $FormaDePago, $MedioDePago, $Requisito, $DíaDeLaSemana, $Moneda, $Retira, $Reintegro, $InformacionAdicional, $PeriodoDesde, $PeriodoHasta;
     public $titulo, $Listado=[];
 
-    public $nombre_agregar,$direccion_agregar,$ubicaciongps_agregar;
+    public $nombre_agregar,$direccion_agregar,$ubicaciongps_agregar,  $aplica_agregar;
+    public $MostrarModal=false, $MostrarModalPromocion=false;
     
     public function render() {
         return view('livewire.configuraciones-component');
@@ -22,8 +24,9 @@ class ConfiguracionesComponent extends Component
     public function CargarDatosModal($modulo) {
         switch($modulo) {
             case 'Zonas': $this->Listado = zona::all(); break;
-            case 'MedioDePago': $this->Listado = MedioDePago::all(); break;
-            case 'FormaDePago': $this->Listado = FormaDePago::all(); break;
+            case 'FormaDePago': $this->Listado = FormaDePago::where('id','>',0)->select('NombreForma as nombre')->get(); break;
+            case 'MedioDePago': $this->Listado = MedioDePago::where('id','>',0)->select('NombreMedio as nombre')->get();; break;
+            case 'ListaDeProductos': $this->Listado = Producto::where('id','>',0)->select('NombreProducto as nombre','AplicaSiNO as aplicasino')->get(); break;
 
             case 'Periodos': break;
             case 'TopePorPeriodo': break;
@@ -42,13 +45,32 @@ class ConfiguracionesComponent extends Component
 
         $this->titulo=$modulo;
 
+        $this->AbrirModal();
+        // $this->MostrarModal = !$this->MostrarModal;
         // dd($this->Listado);
+    }
 
+    public function CerrarModal() { $this->MostrarModal =false; }
+    public function AbrirModal() { $this->MostrarModal =true; }
+    public function CerrarModalPromociones() { $this->MostrarModalPromocion =false; }
+    public function AbrirModalPromociones() { 
+        $this->Zonas = zona::all();
+        
+        
+        $this->MostrarModalPromocion =true; 
     }
 
     public function Agregar($modulo) {
         switch($modulo) {
             case 'Zonas': $a= zona::create(['nombre' => $this->nombre_agregar, 'direccion' => $this->direccion_agregar, 'ubicacionGPS' => $this->ubicaciongps_agregar]);
+            case 'FormaDePago': $a= FormaDePago::create(['NombreForma' => $this->nombre_agregar]);
+            case 'MedioDePago': $a= MedioDePago::create(['NombreMedio' => $this->nombre_agregar]);
+            case 'ListaDeProductos': $a= Producto::create(['NombreProducto' => $this->nombre_agregar,'AplicaSINO'=>$this->aplica_agregar]);
         }
+        $this->CargarDatosModal($modulo);
+    }
+
+    public function AgregarPromocion() {
+        
     }
 }

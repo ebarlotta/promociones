@@ -195,7 +195,6 @@
             }
 
 
-
             .modal-80 {
                 width: 80%;
                 max-width: none;
@@ -230,14 +229,28 @@
                 border-radius: 8px;
             } */
 
+            .hover-bg-light:hover {
+                background-color: #f8f9fa !important;
+            }
+
+            .label {
+                font-size: 0.8rem;
+                display: inline-block;
+            }
+
         </style>
     </head>
     <div class="container">
         <div class="main-card mt-3">
-            <div class="card-header mb-4">
-                <h1>PRINCIPALES PROMOCIONES</h1>
-                {{-- <div class="subtitle">EN FARMACIAS Y PERFUMERÍAS*</div> --}}
-                <div class="month">SEPTIEMBRE</div>
+            <div class="card-header mb-4 flex d-flex">
+                <div class="col-11 ml-2">
+                    <h1>PRINCIPALES PROMOCIONES</h1>
+                    <div class="month">SEPTIEMBRE</div>
+                    {{-- <div class="subtitle">EN FARMACIAS Y PERFUMERÍAS*</div> --}}
+                </div>
+                <div class="w-20 h-20" style="background-color: #f8f9fa; border-radius: 10px; color:black;margin: auto;" wire:click="AbrirModalPromociones()">
+                    <input type="button" value="+" style="margin-top: 15%; font-size: 40px; font-weight: bold;">
+                </div>
             </div>
             <div class="grid-container">
                 <!-- Zonas -->
@@ -264,6 +277,58 @@
                     </div>  
                 </div>
                 
+                <!-- FormaDePago -->
+                <div class="grid-item" wire:click="CargarDatosModal('FormaDePago')">
+                    <div class="item-header">
+                        <div class="icon"><i class="fas fa-credit-card"></i></div>
+                        <div class="item-title">Forma de Pago</div>
+                    </div>
+                    <div class="item-content">
+                        <p class="item-desc">Métodos de pago aceptados para la promoción.</p>
+                        <div class="item-details">
+                            <p><i class="fas fa-credit-card"></i> Tarjeta de crédito</p>
+                            <p><i class="fas fa-credit-card"></i> Tarjeta de débito</p>
+                            <p><i class="fas fa-money-bill"></i> Efectivo</p>
+                        </div>
+                        <span class="tag">Medios de pago</span>
+                    </div>
+                </div>
+
+                <!-- MedioDePago -->
+                <div class="grid-item" wire:click="CargarDatosModal('MedioDePago')">
+                    <div class="item-header">
+                        <div class="icon"><i class="fas fa-money-check-alt"></i></div>
+                        <div class="item-title">Medio de Pago</div>
+                    </div>
+                    <div class="item-content">
+                        <p class="item-desc">Instrumentos específicos de pago que participan en la promoción.</p>
+                        <div class="item-details">
+                            <p><i class="fab fa-cc-visa"></i> Visa</p>
+                            <p><i class="fab fa-cc-mastercard"></i> Mastercard</p>
+                            <p><i class="fas fa-university"></i> Banco Nación</p>
+                        </div>
+                        <span class="tag">Instrumentos financieros</span>
+                    </div>
+                </div>
+
+                <!-- ListaDeProductos -->
+                <div class="grid-item" wire:click="CargarDatosModal('ListaDeProductos')">
+                    <div class="item-header">
+                        <div class="icon"><i class="fas fa-list"></i></div>
+                        <div class="item-title">Lista de Productos</div>
+                    </div>
+                    <div class="item-content">
+                        <p class="item-desc">Productos específicos que participan en la promoción.</p>
+                        <div class="item-details">
+                            <p><i class="fas fa-pills"></i> Medicamentos</p>
+                            <p><i class="fas fa-soap"></i> Productos de higiene</p>
+                            <p><i class="fas fa-spray-can"></i> Perfumes</p>
+                        </div>
+                        <span class="tag">Productos elegibles</span>
+                    </div>
+                </div>
+<br>
+
                 <!-- TipoDeCompra -->
                 <div class="grid-item">
                     <div class="item-header">
@@ -283,7 +348,7 @@
                 </div>
                 
                 <!-- MontoFijoDESCUENTO -->
-                <div class="grid-item">
+                <div class="grid-item" wire:click="CargarDatosModal('MontoFijoDESCUENTO')">
                     <div class="item-header">
                         <div class="icon"><i class="fas fa-tags"></i></div>
                         <div class="item-title">Monto Fijo DESCUENTO</div>
@@ -395,57 +460,6 @@
                     </div>
                 </div>
                 
-                <!-- ListaDeProductos -->
-                <div class="grid-item">
-                    <div class="item-header">
-                        <div class="icon"><i class="fas fa-list"></i></div>
-                        <div class="item-title">Lista de Productos</div>
-                    </div>
-                    <div class="item-content">
-                        <p class="item-desc">Productos específicos que participan en la promoción.</p>
-                        <div class="item-details">
-                            <p><i class="fas fa-pills"></i> Medicamentos</p>
-                            <p><i class="fas fa-soap"></i> Productos de higiene</p>
-                            <p><i class="fas fa-spray-can"></i> Perfumes</p>
-                        </div>
-                        <span class="tag">Productos elegibles</span>
-                    </div>
-                </div>
-                
-                <!-- FormaDePago -->
-                <div class="grid-item">
-                    <div class="item-header">
-                        <div class="icon"><i class="fas fa-credit-card"></i></div>
-                        <div class="item-title">Forma de Pago</div>
-                    </div>
-                    <div class="item-content">
-                        <p class="item-desc">Métodos de pago aceptados para la promoción.</p>
-                        <div class="item-details">
-                            <p><i class="fas fa-credit-card"></i> Tarjeta de crédito</p>
-                            <p><i class="fas fa-credit-card"></i> Tarjeta de débito</p>
-                            <p><i class="fas fa-money-bill"></i> Efectivo</p>
-                        </div>
-                        <span class="tag">Medios de pago</span>
-                    </div>
-                </div>
-                
-                <!-- MedioDePago -->
-                <div class="grid-item">
-                    <div class="item-header">
-                        <div class="icon"><i class="fas fa-money-check-alt"></i></div>
-                        <div class="item-title">Medio de Pago</div>
-                    </div>
-                    <div class="item-content">
-                        <p class="item-desc">Instrumentos específicos de pago que participan en la promoción.</p>
-                        <div class="item-details">
-                            <p><i class="fab fa-cc-visa"></i> Visa</p>
-                            <p><i class="fab fa-cc-mastercard"></i> Mastercard</p>
-                            <p><i class="fas fa-university"></i> Banco Nación</p>
-                        </div>
-                        <span class="tag">Instrumentos financieros</span>
-                    </div>
-                </div>
-                
                 <!-- Requisito -->
                 <div class="grid-item">
                     <div class="item-header">
@@ -544,81 +558,232 @@
                 </div>
             </div>
         </div>
-        
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-80" role="document">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">{{ $titulo }}</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="border-radius: 20px;">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body flex h-56 flex-col justify-between ">
-                    <div><h2>Listado</h2>
-                        <div class="flex d-flex">
-                            <div class="col-3">Nombre</div>
-                            <div class="col-3">Dirección</div>
-                            <div class="col-3">Ubicación</div>
-                            <div class="col-3">Opciones</div>
-                        </div>
 
-                        <div class="scroll-container" style="max-height: 400px; overflow-y: auto;">
-                            @foreach ($Listado as $item)
-                                <div class="flex d-flex" style="border: black solid 1px">
-                                    <div class="col-3">{{ $item->nombre }}</div>
-                                    <div class="col-3">{{ $item->direccion }}</div>
-                                    <div class="col-3">{{ $item->ubicacionGPS }}</div>
-                                    <div class="col-3 flex d-flex">
-                                        <input class="form-control btn btn-warning h-7 col-6 m-1" value="Modificar">
-                                        <input class="form-control btn btn-danger h-7 col-6 m-1" value="Eliminar" wire:click="Eliminar({{ $item->id }})">
+        <!-- Modal -->
+        @if($MostrarModal)
+            <div class="modal fade show" style="display: block;" tabindex="-1">
+                <div class="modal-dialog modal-80">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">{{ $titulo }}</h5>
+                            <button type="button" class="btn-close" wire:click="CerrarModal"></button>
+                        </div>
+                        <div class="modal-body flex h-56 flex-col justify-between ">
+                            <div><h2>Listado</h2>
+                                <div class="flex d-flex" style="background-color: lightgray; height: 35px; border: black solid 1px">
+                                    <div class="col-3"><b>Nombre</b></div>
+                                    {{-- No aplica para: FormaDePago && MedioDePago --}}
+                                    @if($titulo=="Zonas")
+                                        <div class="col-3"><b>Dirección</b></div>
+                                        <div class="col-3"><b>Ubicación</b></div>
+                                    @endif
+
+                                    @if($titulo=="ListaDeProductos")
+                                        <div class="col-3"><b>Aplica SI/NO</b></div>
+                                    @endif
+
+                                    <div class="col-3"><b>Opciones</b></div>                                   
+                                </div>
+
+                                <div class="scroll-container" style="max-height: 400px; overflow-y: auto;">
+                                    @foreach ($Listado as $item)
+                                        <div class="flex d-flex bg-transparent hover-bg-light transition" style="border: black solid 1px">
+                                            @if($titulo=="Zonas")
+                                                <div class="col-3">{{ $item->nombre }}</div>
+                                                <div class="col-3">{{ $item->direccion }}</div>
+                                                <div class="col-3">{{ $item->ubicacionGPS }}</div>
+                                            @endif
+
+                                            @if($titulo=="FormaDePago" || $titulo=="MedioDePago")
+                                                <div class="col-9">{{ $item->nombre }}</div>
+                                            @endif
+
+                                            @if($titulo=="ListaDeProductos")
+                                                <div class="col-3">{{ $item->nombre }}</div>
+                                                <div class="col-6">{{ $item->aplicasino }}</div>
+                                            @endif
+
+                                            <div class="col-3 flex d-flex">
+                                                <input class="form-control btn btn-warning h-7 col-6 m-1" value="Modificar">
+                                                <input class="form-control btn btn-danger h-7 col-6 m-1" value="Eliminar" wire:click="Eliminar({{ $item->id }})">
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <div>
+                                <h2>Agregar</h2>
+                                <div class="flex d-flex">
+                                    <div class="col-4">Nombre</div>
+                                    @if($titulo=="Zonas")
+                                        <div class="col-4">Dirección</div>
+                                        <div class="col-4">Ubicación</div>
+                                    @endif
+                                    @if($titulo=="ListaDeProductos")
+                                        <div class="col-4">AplicaSINo</div>
+                                    @endif
+                                </div>
+                                <div class="flex d-flex">
+                                    <input type="text" class="form-control col-4" wire:model="nombre_agregar">
+                                    @if($titulo=="Zonas")
+                                        <input type="text" class="form-control col-4" wire:model="direccion_agregar">
+                                        <input type="text" class="form-control col-4" wire:model="ubicaciongps_agregar">
+                                    @endif
+
+                                    @if($titulo=="ListaDeProductos")
+                                        <input type="text" class="form-control col-4" wire:model="aplica_agregar">
+                                    @endif
+                                </div>
+                                <div>
+                                    <input type="button" class="form-control btn btn-info col-3" value="Agregar" wire:click="Agregar('{{ $titulo }}')">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" wire:click="CerrarModal">Cerrar</button>
+                            <button type="button" class="btn btn-primary" wire:click="guardar">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
+
+
+                <!-- Modal Nueva Promoción -->
+        @if($MostrarModalPromocion)
+            <div class="modal fade show" style="display: block;" tabindex="-1">
+                <div class="modal-dialog modal-80">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Promociones Configuradas</h5>
+                            <button type="button" class="btn-close" wire:click="CerrarModalPromociones"></button>
+                        </div>
+                        <div class="modal-body flex h-56 flex-col justify-between ">
+                            <div>
+                            {{-- <h2>Promociones Configuradas</h2> --}}
+                                <div class="flex d-flex" style="background-color: lightgray; height: 35px; border: black solid 1px; font-size: 0.5rem;">
+                                    <div class="" style="width: 7%"><b>Zona</b></div>                                    
+                                    <div class="" style="width: 7%"><b>Tipo de Compra</b></div>
+                                    <div class="" style="width: 7%"><b>Monto Fijo Descuento</b></div>
+                                    <div class="" style="width: 7%"><b>Porcentaje Descuento</b></div>
+                                    <div class="" style="width: 7%"><b>Tope Por Transacción</b></div>
+                                    <div class="" style="width: 5%"><b>Periodo Desde</b></div>
+                                    <div class="" style="width: 5%"><b>Periodo Hasta</b></div>
+                                    <div class="" style="width: 7%"><b>Tope Por Periodo</b></div>
+                                    <div class="" style="width: 7%"><b>Tope Por Tipo de Periodo</b></div>
+                                    <div class="" style="width: 7%"><b>Requisitos</b></div>
+                                    <div class="" style="width: 7%"><b>Dias de la semana</b></div>
+                                    <div class="" style="width: 3%"><b>Moneda</b></div>
+                                    <div class="" style="width: 7%"><b>Lugar de Retiro</b></div>
+                                    <div class="" style="width: 7%"><b>Reintegro</b></div>
+                                    <div class="" style="width: 3%"><b>Información Adicional</b></div>
+                                    <div class="" style="width: 8%"><b>Opciones</b></div>                                   
+                                </div>
+
+                                <div class="scroll-container" style="max-height: 400px; overflow-y: auto;">
+                                    @foreach ($Listado as $item)
+                                        <div class="flex d-flex bg-transparent hover-bg-light transition" style="border: black solid 1px">
+                                            
+                                            {{-- <div class="col-3">{{ $item->nombre }}</div>
+                                            <div class="col-3">{{ $item->direccion }}</div>
+                                            <div class="col-3">{{ $item->ubicacionGPS }}</div>
+
+                                            <div class="col-3 flex d-flex">
+                                                <input class="form-control btn btn-warning h-7 col-6 m-1" value="Modificar">
+                                                <input class="form-control btn btn-danger h-7 col-6 m-1" value="Eliminar" wire:click="Eliminar({{ $item->id }})">
+                                            </div> --}}
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <div>
+                                {{-- <h2>Agregar</h2> --}}
+                                <h5 class="modal-title">Agregar</h5>
+
+                                <div class="flex d-flex flex-wrap">
+                                    <div class="col-2 px-1">
+                                        <div class="label">Zona</div>
+                                        <select name="" id="" class="form-control">
+                                            @foreach($Zonas as $zona)
+                                                <option value="{{ $zona->id }}">{{ $zona->nombre }}</option>
+                                            @endforeach
+                                        </select>
+                                        {{-- <input type="text" class="form-control" wire:model="nombre_agregar"> --}}
+                                    </div>
+                                    <div class="col-2 px-1">
+                                        <div class="label">Tipo de Compra</div>
+                                        <input type="text" class="form-control" wire:model="TipoDeCompra">
+                                    </div>
+                                    <div class="col-2 px-1">
+                                        <div class="label">Monto Fijo Descuento</div>
+                                        <input type="number" class="form-control" wire:model="MontoFijo">
+                                    </div>
+                                    <div class="col-2 px-1">
+                                        <div class="label">Porcentaje Descuento</div>
+                                        <input type="number" class="form-control" wire:model="PorcentajeDescuento">
+                                    </div>
+                                    <div class="col-2 px-1">
+                                        <div class="label">Tope Por Transacción</div>
+                                        <input type="number" class="form-control" wire:model="TopePorTransaccion">
+                                    </div>
+                                    <div class="col-2 px-1">
+                                        <div class="label">Periodo Desde</div>
+                                        <input type="date" class="form-control" wire:model="PeriodoDesde">
+                                    </div>
+                                    <div class="col-2 px-1">
+                                        <div class="label">Periodo Hasta</div>
+                                        <input type="date" class="form-control" wire:model="PeriodoHasta">
+                                    </div>
+                                    <div class="col-2 px-1">
+                                        <div class="label">Tope Por Periodo</div>
+                                        <input type="number" class="form-control" wire:model="TopePorPeriodo">
+                                    </div>
+                                    <div class="col-2 px-1">
+                                        <div class="label">Tope Por Tipo de Periodo</div>
+                                        <input type="number" class="form-control" wire:model="TopePorTipoDePeriodo">
+                                    </div>
+                                    <div class="col-2 px-1">
+                                        <div class="label">Requisitos</div>
+                                        <input type="text" class="form-control" wire:model="Requisito">
+                                    </div>
+                                    <div class="col-2 px-1">
+                                        <div class="label">Dias de la semana</div>
+                                        {{-- $DíaDeLaSemana --}}
+                                        <input type="text" class="form-control" wire:model="nombre_agregar">
+                                    </div>
+                                    <div class="col-2 px-1">
+                                        <div class="label">Moneda</div>
+                                        <input type="text" class="form-control" wire:model="Moneda">
+                                    </div>
+                                    <div class="col-2 px-1">
+                                        <div class="label">Lugar de Retiro</div>
+                                        <input type="text" class="form-control" wire:model="Retira">
+                                    </div>
+                                    <div class="col-2 px-1">
+                                        <div class="label">Reintegro</div>
+                                        <input type="number" class="form-control" wire:model="Reintegro">
+                                    </div>
+                                    <div class="col-2 px-1">
+                                        <div class="label">Información Adicional</div>
+                                        <input type="text" class="form-control" wire:model="InformacionAdicional">
                                     </div>
                                 </div>
-                            @endforeach
+                                <div>
+                                    <input type="button" class="form-control btn btn-info col-3" value="Agregar" wire:click="AgregarPromocion()">
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div><h2>Agregar</h2>
-                        <div class="flex d-flex">
-                            <div class="col-4">Nombre</div>
-                            <div class="col-4">Dirección</div>
-                            <div class="col-4">Ubicación</div>
-                        </div>
-                        <div class="flex d-flex">
-                            <input type="text" class="form-control col-4" wire:model="nombre_agregar">
-                            <input type="text" class="form-control col-4" wire:model="direccion_agregar">
-                            <input type="text" class="form-control col-4" wire:model="ubicaciongps_agregar">
-                        </div>
-                        <div>
-                            <input type="button" class="form-control btn btn-info col-3" value="Agregar" wire:click="Agregar('{{ $titulo }}')">
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" wire:click="CerrarModalPromociones">Cerrar</button>
+                            {{-- <button type="button" class="btn btn-primary" wire:click="guardar">Guardar</button> --}}
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" style="border-radius: 20px;">Close</button>
-                    <button type="button" class="btn btn-primary" style="border-radius: 20px;">Save changes</button>
-                </div>
-                </div>
             </div>
-        </div>
+        @endif
 
 
     </div>
-        <footer>
-            <p>Grid de conceptos con íconos temáticos - Diseño responsivo</p>
-        </footer>
-    </div>
 </div>
 
-    {{-- <div class="py-12">
-        tres
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            Unod
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                dos
-            </div>
-        </div>
-    </div> --}}
 
-
-</div>

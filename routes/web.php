@@ -18,6 +18,7 @@ Route::middleware([
     Route::get('/inicial', function () {
         return view('front.inicial');
     })->name('inicial');
+    Route::get('segundo',ConfiguracionesComponent::class)->name('segundo');
 });
 
 Route::middleware(['auth:sanctum', 'verified', 'permission:manage users'])
@@ -30,4 +31,3 @@ Route::get('/logout', function () {
     return redirect('/');
 });
 
-Route::get('segundo',ConfiguracionesComponent::class)->name('segundo');
