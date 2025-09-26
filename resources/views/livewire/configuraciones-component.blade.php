@@ -19,40 +19,40 @@
                 box-sizing: border-box;
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             }
-            
+
             body {
                 background: linear-gradient(135deg, #1a2a6c 0%, #b21f1f 50%, #fdbb2d 100%);
                 color: #333;
                 padding: 40px 20px;
                 min-height: 100vh;
             }
-            
+
             .container {
                 max-width: 100%;
                 /* max-width: 95%; */
                 /* max-width: 1400px; */
                 margin: 0 auto;
             }
-            
+
             header {
                 text-align: center;
                 margin-bottom: 40px;
                 color: white;
             }
-            
+
             h1 {
                 font-size: 2.8rem;
                 margin-bottom: 15px;
                 text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             }
-            
+
             .subtitle {
                 font-size: 1.3rem;
                 opacity: 0.9;
                 max-width: 800px;
                 margin: 0 auto;
             }
-            
+
             .card-header {
                 text-align: center;
                 padding: 25px;
@@ -83,7 +83,7 @@
                 gap: 25px;
                 margin-bottom: 40px;
             }
-            
+
             .grid-item {
                 background: white;
                 border-radius: 18px;
@@ -94,13 +94,13 @@
                 flex-direction: column;
                 box-shadow: 5px 5px 10px #2a0303;
             }
-            
+
             .grid-item:hover {
                 transform: translateY(-5px);
                 box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
                 box-shadow: 5px 5px 10px #b44b4b;
             }
-            
+
             .item-header {
                 padding: 20px;
                 text-align: center;
@@ -110,33 +110,33 @@
                 justify-content: center;
 
             }
-            
+
             .icon {
                 font-size: 2.5rem;
                 margin-bottom: 15px;
             }
-            
+
             .item-title {
                 font-size: 1.4rem;
                 font-weight: bold;
                 margin-top: 16px;
                 margin-left: 14px;
             }
-            
+
             .item-content {
                 padding: 20px;
                 flex-grow: 1;
                 display: flex;
                 flex-direction: column;
             }
-            
+
             .item-desc {
                 margin-bottom: 20px;
                 color: #555;
                 line-height: 1.5;
                 flex-grow: 1;
             }
-            
+
             .item-details {
                 background-color: #afc1d5;
                 padding: 15px;
@@ -146,12 +146,12 @@
                 max-height: 100px;
                 height: auto;
             }
-            
+
             .item-details p {
                 margin: 5px 0;
                 font-size: 0.95rem;
             }
-            
+
             .tag {
                 display: inline-block;
                 background: #e9ecef;
@@ -161,7 +161,7 @@
                 color: #495057;
                 margin-top: 15px;
             }
-            
+
             footer {
                 text-align: center;
                 color: white;
@@ -169,7 +169,7 @@
                 margin-top: 40px;
                 font-size: 1.1rem;
             }
-            
+
              .month {
                 font-size: 2rem;
                 font-weight: bold;
@@ -179,16 +179,16 @@
                 border-radius: 30px;
                 margin-top: 15px;
             }
-            
+
             @media (max-width: 768px) {
                 .grid-container {
                     grid-template-columns: 1fr;
                 }
-                
+
                 h1 {
                     font-size: 2.2rem;
                 }
-                
+
                 .subtitle {
                     font-size: 1.1rem;
                 }
@@ -201,23 +201,23 @@
                 height: 80%;
                 border-radius: 20px;
             }
-            
+
             .modal-80 .modal-content {
                 height: 100%;
                 border-radius: 20px;
             }
-            
+
             .modal-80 .modal-body {
                 overflow-y: auto;
             }
-            
+
             /* Asegurar que el modal se centre correctamente */
             /* .modal {
                 display: flex !important;
                 align-items: center;
                 justify-content: center;
             } */
-            
+
             /* Botón para demostración */
             /* .demo-btn {
                 position: fixed;
@@ -274,9 +274,9 @@
 
                         </div>
                         <span class="tag">Geolocalización</span>
-                    </div>  
+                    </div>
                 </div>
-                
+
                 <!-- FormaDePago -->
                 <div class="grid-item" wire:click="CargarDatosModal('FormaDePago')">
                     <div class="item-header">
@@ -346,7 +346,7 @@
                         <span class="tag">Categorización</span>
                     </div>
                 </div>
-                
+
                 <!-- MontoFijoDESCUENTO -->
                 <div class="grid-item" wire:click="CargarDatosModal('MontoFijoDESCUENTO')">
                     <div class="item-header">
@@ -363,7 +363,7 @@
                         <span class="tag">Descuento fijo</span>
                     </div>
                 </div>
-                
+
                 <!-- PorcentajeDESCUENTO -->
                 <div class="grid-item">
                     <div class="item-header">
@@ -379,7 +379,7 @@
                         <span class="tag">Descuento porcentual</span>
                     </div>
                 </div>
-                
+
                 <!-- TopePorTransaccion -->
                 <div class="grid-item">
                     <div class="item-header">
@@ -395,7 +395,7 @@
                         <span class="tag">Límite transaccional</span>
                     </div>
                 </div>
-                
+
                 <!-- PeriodoDesde -->
                 <div class="grid-item">
                     <div class="item-header">
@@ -411,7 +411,7 @@
                         <span class="tag">Fecha inicial</span>
                     </div>
                 </div>
-                
+
                 <!-- PeriodoHasta -->
                 <div class="grid-item">
                     <div class="item-header">
@@ -427,7 +427,7 @@
                         <span class="tag">Fecha final</span>
                     </div>
                 </div>
-                
+
                 <!-- TopePorPeriodo -->
                 <div class="grid-item">
                     <div class="item-header">
@@ -443,7 +443,7 @@
                         <span class="tag">Límite periódico</span>
                     </div>
                 </div>
-                
+
                 <!-- TopePorTipoPeriodo -->
                 <div class="grid-item">
                     <div class="item-header">
@@ -459,7 +459,7 @@
                         <span class="tag">Límite segmentado</span>
                     </div>
                 </div>
-                
+
                 <!-- Requisito -->
                 <div class="grid-item">
                     <div class="item-header">
@@ -476,7 +476,7 @@
                         <span class="tag">Condiciones</span>
                     </div>
                 </div>
-                
+
                 <!-- DíaDeLaSemana -->
                 <div class="grid-item">
                     <div class="item-header">
@@ -492,7 +492,7 @@
                         <span class="tag">Días hábiles</span>
                     </div>
                 </div>
-                
+
                 <!-- Moneda -->
                 <div class="grid-item">
                     <div class="item-header">
@@ -508,7 +508,7 @@
                         <span class="tag">Divisas</span>
                     </div>
                 </div>
-                
+
                 <!-- Información -->
                 <div class="grid-item">
                     <div class="item-header">
@@ -524,7 +524,7 @@
                         <span class="tag">Aclaraciones</span>
                     </div>
                 </div>
-                
+
                 <!-- Retira -->
                 <div class="grid-item">
                     <div class="item-header">
@@ -540,7 +540,7 @@
                         <span class="tag">Modalidad de entrega</span>
                     </div>
                 </div>
-                
+
                 <!-- Reintegro -->
                 <div class="grid-item">
                     <div class="item-header">
@@ -582,7 +582,7 @@
                                         <div class="col-3"><b>Aplica SI/NO</b></div>
                                     @endif
 
-                                    <div class="col-3"><b>Opciones</b></div>                                   
+                                    <div class="col-3"><b>Opciones</b></div>
                                 </div>
 
                                 <div class="scroll-container" style="max-height: 400px; overflow-y: auto;">
@@ -641,7 +641,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" wire:click="CerrarModal">Cerrar</button>
-                            <button type="button" class="btn btn-primary" wire:click="guardar">Guardar</button>
+                            {{-- <button type="button" class="btn btn-primary" wire:click="guardar">Guardar</button> --}}
                         </div>
                     </div>
                 </div>
@@ -661,8 +661,8 @@
                         <div class="modal-body flex h-56 flex-col justify-between ">
                             <div>
                             {{-- <h2>Promociones Configuradas</h2> --}}
-                                <div class="flex d-flex" style="background-color: lightgray; height: 35px; border: black solid 1px; font-size: 0.5rem;">
-                                    <div class="" style="width: 7%"><b>Zona</b></div>                                    
+                                <div class="flex d-flex" style="background-color: lightgray; height: 35px; border: black solid 1px; font-size: 0.7rem;">
+                                    <div class="" style="width: 7%"><b>Zona</b></div>
                                     <div class="" style="width: 7%"><b>Tipo de Compra</b></div>
                                     <div class="" style="width: 7%"><b>Monto Fijo Descuento</b></div>
                                     <div class="" style="width: 7%"><b>Porcentaje Descuento</b></div>
@@ -677,13 +677,13 @@
                                     <div class="" style="width: 7%"><b>Lugar de Retiro</b></div>
                                     <div class="" style="width: 7%"><b>Reintegro</b></div>
                                     <div class="" style="width: 3%"><b>Información Adicional</b></div>
-                                    <div class="" style="width: 8%"><b>Opciones</b></div>                                   
+                                    <div class="" style="width: 8%"><b>Opciones</b></div>
                                 </div>
 
                                 <div class="scroll-container" style="max-height: 400px; overflow-y: auto;">
                                     @foreach ($Listado as $item)
                                         <div class="flex d-flex bg-transparent hover-bg-light transition" style="border: black solid 1px">
-                                            
+
                                             {{-- <div class="col-3">{{ $item->nombre }}</div>
                                             <div class="col-3">{{ $item->direccion }}</div>
                                             <div class="col-3">{{ $item->ubicacionGPS }}</div>
@@ -700,6 +700,19 @@
                                 {{-- <h2>Agregar</h2> --}}
                                 <h5 class="modal-title">Agregar</h5>
 
+                                <select class="form-control select2-with-icons">
+                                    <option value="1" data-icon="🏠">Centro</option>
+                                    <option value="2" data-icon="🏢">Sucursal Norte</option>
+                                </select>
+
+
+<select class="form-control">
+    <option value="1">📍 Centro</option>
+    <option value="2">🏢 Norte</option>
+    <option value="3">🏪 Sur</option>
+    <option value="4">🏬 Este</option>
+    <option value="5">🏣 Oeste</option>
+</select>
                                 <div class="flex d-flex flex-wrap">
                                     <div class="col-2 px-1">
                                         <div class="label">Zona</div>
@@ -782,7 +795,17 @@
             </div>
         @endif
 
+<script>
+$('.select2-with-icons').select2({
+    templateResult: formatIcon,
+    templateSelection: formatIcon
+});
 
+function formatIcon(option) {
+    if (!option.id) return option.text;
+    return $('<span><span style="margin-right:10px">' + $(option.element).data('icon') + '</span>' + option.text + '</span>');
+}
+</script>
     </div>
 </div>
 
