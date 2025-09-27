@@ -31,6 +31,8 @@
 
         <!-- Styles -->
         @livewireStyles
+
+        @laravelPWA
     </head>
     <body class="font-sans antialiased">
         <x-banner />

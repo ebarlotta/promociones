@@ -635,7 +635,7 @@
                                     @endif
                                 </div>
                                 <div>
-                                    <input type="button" class="form-control btn btn-info col-3" value="Agregar" wire:click="Agregar('{{ $titulo }}')">
+                                    <input type="button" class="form-control btn btn-info col-3 mt-3" value="Agregar" wire:click="Agregar('{{ $titulo }}')">
                                 </div>
                             </div>
                         </div>
@@ -700,19 +700,6 @@
                                 {{-- <h2>Agregar</h2> --}}
                                 <h5 class="modal-title">Agregar</h5>
 
-                                <select class="form-control select2-with-icons">
-                                    <option value="1" data-icon="🏠">Centro</option>
-                                    <option value="2" data-icon="🏢">Sucursal Norte</option>
-                                </select>
-
-
-<select class="form-control">
-    <option value="1">📍 Centro</option>
-    <option value="2">🏢 Norte</option>
-    <option value="3">🏪 Sur</option>
-    <option value="4">🏬 Este</option>
-    <option value="5">🏣 Oeste</option>
-</select>
                                 <div class="flex d-flex flex-wrap">
                                     <div class="col-2 px-1">
                                         <div class="label">Zona</div>
@@ -782,7 +769,7 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <input type="button" class="form-control btn btn-info col-3" value="Agregar" wire:click="AgregarPromocion()">
+                                    <input type="button" class="form-control btn btn-info col-3 mt-3" value="Agregar" wire:click="AgregarPromocion()">
                                 </div>
                             </div>
                         </div>
@@ -794,18 +781,6 @@
                 </div>
             </div>
         @endif
-
-<script>
-$('.select2-with-icons').select2({
-    templateResult: formatIcon,
-    templateSelection: formatIcon
-});
-
-function formatIcon(option) {
-    if (!option.id) return option.text;
-    return $('<span><span style="margin-right:10px">' + $(option.element).data('icon') + '</span>' + option.text + '</span>');
-}
-</script>
     </div>
 </div>
 
