@@ -616,32 +616,32 @@
                                 <div class="flex d-flex">
                                     <div class="col-4">Nombre</div>
                                     @if($titulo=="Zonas")
-                                        <div class="col-4">Dirección</div>
-                                        <div class="col-4">Ubicación</div>
+                                        <div class="col-4 mx-1">Dirección</div>
+                                        <div class="col-4 mx-1">Ubicación</div>
                                     @endif
                                     @if($titulo=="ListaDeProductos")
-                                        <div class="col-4">AplicaSINo</div>
+                                        <div class="col-4 mx-1">AplicaSINo</div>
                                     @endif
                                 </div>
                                 <div class="flex d-flex">
-                                    <input type="text" class="form-control col-4" wire:model="nombre_agregar">
+                                    <input type="text" class="form-control col-4 mx-1" wire:model="nombre_agregar">
                                     @if($titulo=="Zonas")
-                                        <input type="text" class="form-control col-4" wire:model="direccion_agregar">
-                                        <input type="text" class="form-control col-4" wire:model="ubicaciongps_agregar">
+                                        <input type="text" class="form-control col-4 mx-1" wire:model="direccion_agregar">
+                                        <input type="text" class="form-control col-4 mx-1" wire:model="ubicaciongps_agregar">
                                     @endif
 
                                     @if($titulo=="ListaDeProductos")
-                                        <input type="text" class="form-control col-4" wire:model="aplica_agregar">
+                                        <input type="text" class="form-control col-4 mx-1" wire:model="aplica_agregar">
                                     @endif
                                 </div>
                                 <div>
-                                    <input type="button" class="form-control btn btn-info col-3" value="Agregar" wire:click="Agregar('{{ $titulo }}')">
+                                    <input type="button" class="form-control btn btn-info col-3 mt-2 ml-1" value="Agregar" wire:click="Agregar('{{ $titulo }}')">
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" wire:click="CerrarModal">Cerrar</button>
-                            <button type="button" class="btn btn-primary" wire:click="guardar">Guardar</button>
+                            {{-- <button type="button" class="btn btn-primary" wire:click="guardar">Guardar</button> --}}
                         </div>
                     </div>
                 </div>
@@ -661,22 +661,22 @@
                         <div class="modal-body flex h-56 flex-col justify-between ">
                             <div>
                             {{-- <h2>Promociones Configuradas</h2> --}}
-                                <div class="flex d-flex" style="background-color: lightgray; height: 35px; border: black solid 1px; font-size: 0.5rem;">
+                                <div class="flex d-flex" style="background-color: lightgray; height: 35px; border: black solid 1px; font-size: 0.75rem;">
                                     <div class="" style="width: 7%"><b>Zona</b></div>                                    
-                                    <div class="" style="width: 7%"><b>Tipo de Compra</b></div>
-                                    <div class="" style="width: 7%"><b>Monto Fijo Descuento</b></div>
-                                    <div class="" style="width: 7%"><b>Porcentaje Descuento</b></div>
-                                    <div class="" style="width: 7%"><b>Tope Por Transacción</b></div>
-                                    <div class="" style="width: 5%"><b>Periodo Desde</b></div>
-                                    <div class="" style="width: 5%"><b>Periodo Hasta</b></div>
-                                    <div class="" style="width: 7%"><b>Tope Por Periodo</b></div>
-                                    <div class="" style="width: 7%"><b>Tope Por Tipo de Periodo</b></div>
+                                    <div class="" style="width: 7%"><b>Tipo de <br>Compra</b></div>
+                                    <div class="" style="width: 7%"><b>Monto Fijo <br>Descuento</b></div>
+                                    <div class="" style="width: 7%"><b>Porcentaje<br> Descuento</b></div>
+                                    <div class="" style="width: 7%"><b>Tope Por <br>Transacción</b></div>
+                                    <div class="" style="width: 5%"><b>Periodo <br>Desde</b></div>
+                                    <div class="" style="width: 5%"><b>Periodo<br> Hasta</b></div>
+                                    <div class="" style="width: 7%"><b>Tope Por<br> Periodo</b></div>
+                                    <div class="" style="width: 7%"><b>Tope Por Tipo <br>de Periodo</b></div>
                                     <div class="" style="width: 7%"><b>Requisitos</b></div>
-                                    <div class="" style="width: 7%"><b>Dias de la semana</b></div>
+                                    <div class="" style="width: 7%"><b>Dias de la<br> semana</b></div>
                                     <div class="" style="width: 3%"><b>Moneda</b></div>
-                                    <div class="" style="width: 7%"><b>Lugar de Retiro</b></div>
+                                    <div class="" style="width: 7%"><b>Lugar de <br>Retiro</b></div>
                                     <div class="" style="width: 7%"><b>Reintegro</b></div>
-                                    <div class="" style="width: 3%"><b>Información Adicional</b></div>
+                                    <div class="" style="width: 3%"><b>Información<br> Adicional</b></div>
                                     <div class="" style="width: 8%"><b>Opciones</b></div>                                   
                                 </div>
 
@@ -702,7 +702,7 @@
 
                                 <div class="flex d-flex flex-wrap">
                                     <div class="col-2 px-1">
-                                        <div class="label">Zona</div>
+                                        <div class="label">Zona<br><br></div>
                                         <select name="" id="" class="form-control">
                                             @foreach($Zonas as $zona)
                                                 <option value="{{ $zona->id }}">{{ $zona->nombre }}</option>
@@ -711,65 +711,65 @@
                                         {{-- <input type="text" class="form-control" wire:model="nombre_agregar"> --}}
                                     </div>
                                     <div class="col-2 px-1">
-                                        <div class="label">Tipo de Compra</div>
+                                        <div class="label">Tipo de <br>Compra</div>
                                         <input type="text" class="form-control" wire:model="TipoDeCompra">
                                     </div>
                                     <div class="col-2 px-1">
-                                        <div class="label">Monto Fijo Descuento</div>
+                                        <div class="label">Monto Fijo <br>Descuento</div>
                                         <input type="number" class="form-control" wire:model="MontoFijo">
                                     </div>
                                     <div class="col-2 px-1">
-                                        <div class="label">Porcentaje Descuento</div>
+                                        <div class="label">Porcentaje <br>Descuento</div>
                                         <input type="number" class="form-control" wire:model="PorcentajeDescuento">
                                     </div>
                                     <div class="col-2 px-1">
-                                        <div class="label">Tope Por Transacción</div>
+                                        <div class="label">Tope Por <br>Transacción</div>
                                         <input type="number" class="form-control" wire:model="TopePorTransaccion">
                                     </div>
                                     <div class="col-2 px-1">
-                                        <div class="label">Periodo Desde</div>
+                                        <div class="label">Periodo <br>Desde</div>
                                         <input type="date" class="form-control" wire:model="PeriodoDesde">
                                     </div>
                                     <div class="col-2 px-1">
-                                        <div class="label">Periodo Hasta</div>
+                                        <div class="label">Periodo <br>Hasta</div>
                                         <input type="date" class="form-control" wire:model="PeriodoHasta">
                                     </div>
                                     <div class="col-2 px-1">
-                                        <div class="label">Tope Por Periodo</div>
+                                        <div class="label">Tope Por <br>Periodo</div>
                                         <input type="number" class="form-control" wire:model="TopePorPeriodo">
                                     </div>
                                     <div class="col-2 px-1">
-                                        <div class="label">Tope Por Tipo de Periodo</div>
+                                        <div class="label">Tope Por Tipo<br>de Periodo</div>
                                         <input type="number" class="form-control" wire:model="TopePorTipoDePeriodo">
                                     </div>
                                     <div class="col-2 px-1">
-                                        <div class="label">Requisitos</div>
+                                        <div class="label">Requisitos<br><br></div>
                                         <input type="text" class="form-control" wire:model="Requisito">
                                     </div>
                                     <div class="col-2 px-1">
-                                        <div class="label">Dias de la semana</div>
+                                        <div class="label">Dias de la <br>semana</div>
                                         {{-- $DíaDeLaSemana --}}
                                         <input type="text" class="form-control" wire:model="nombre_agregar">
                                     </div>
                                     <div class="col-2 px-1">
-                                        <div class="label">Moneda</div>
+                                        <div class="label">Moneda<br><br></div>
                                         <input type="text" class="form-control" wire:model="Moneda">
                                     </div>
                                     <div class="col-2 px-1">
-                                        <div class="label">Lugar de Retiro</div>
+                                        <div class="label">Lugar de <br>Retiro</div>
                                         <input type="text" class="form-control" wire:model="Retira">
                                     </div>
                                     <div class="col-2 px-1">
-                                        <div class="label">Reintegro</div>
+                                        <div class="label">Reintegro<br><br></div>
                                         <input type="number" class="form-control" wire:model="Reintegro">
                                     </div>
                                     <div class="col-2 px-1">
-                                        <div class="label">Información Adicional</div>
+                                        <div class="label">Información <br>Adicional</div>
                                         <input type="text" class="form-control" wire:model="InformacionAdicional">
                                     </div>
                                 </div>
                                 <div>
-                                    <input type="button" class="form-control btn btn-info col-3" value="Agregar" wire:click="AgregarPromocion()">
+                                    <input type="button" class="form-control btn btn-info col-3 mt-2 ml-1" value="Agregar" wire:click="AgregarPromocion()">
                                 </div>
                             </div>
                         </div>
