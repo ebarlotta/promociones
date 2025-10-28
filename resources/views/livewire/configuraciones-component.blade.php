@@ -571,27 +571,27 @@
                         <div class="modal-body flex h-56 flex-col justify-between ">
                             <div><h2>Listado</h2>
                                 <div class="flex d-flex" style="background-color: lightgray; height: 35px; border: black solid 1px">
-                                    <div class="col-3"><b>Nombre</b></div>
+                                    <div class="col-4"><b>Nombre</b></div>
                                     {{-- No aplica para: FormaDePago && MedioDePago --}}
                                     @if($titulo=="Zonas")
-                                        <div class="col-3"><b>Dirección</b></div>
-                                        <div class="col-3"><b>Ubicación</b></div>
+                                        <div class="w-full"><b>Dirección</b></div>
+                                        <div class="col-3 d-none d-md-block d-lg-none"><b>Ubicación</b></div>
                                     @endif
 
                                     @if($titulo=="ListaDeProductos")
                                         <div class="col-3"><b>Aplica SI/NO</b></div>
                                     @endif
 
-                                    <div class="col-3"><b>Opciones</b></div>                                   
+                                    <div class="col-3 mr-1"><b>Opciones</b></div>                                   
                                 </div>
 
                                 <div class="scroll-container" style="max-height: 400px; overflow-y: auto;">
                                     @foreach ($Listado as $item)
                                         <div class="flex d-flex bg-transparent hover-bg-light transition" style="border: black solid 1px">
                                             @if($titulo=="Zonas")
-                                                <div class="col-3">{{ $item->nombre }}</div>
-                                                <div class="col-3">{{ $item->direccion }}</div>
-                                                <div class="col-3">{{ $item->ubicacionGPS }}</div>
+                                                <div class="col-4">{{ $item->nombre }}</div>
+                                                <div class="w-full">{{ $item->direccion }}</div>
+                                                <div class="col-3 d-none d-md-block d-lg-none">{{ $item->ubicacionGPS }}</div>
                                             @endif
 
                                             @if($titulo=="FormaDePago" || $titulo=="MedioDePago")
@@ -603,7 +603,7 @@
                                                 <div class="col-6">{{ $item->aplicasino }}</div>
                                             @endif
 
-                                            <div class="col-3 flex d-flex">
+                                            <div class="col-3 flex d-flex  mr-1">
                                                 <input class="form-control btn btn-warning h-7 col-6 m-1" value="Modificar">
                                                 <input class="form-control btn btn-danger h-7 col-6 m-1" value="Eliminar" wire:click="Eliminar({{ $item->id }})">
                                             </div>
