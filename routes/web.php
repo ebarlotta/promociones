@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\ConfiguracionesComponent;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('inicial');
 });
 
 Route::middleware([
@@ -12,13 +12,13 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    // Route::get('/dashboard', function () {
+    //     return view('dashboard');
+    // })->name('dashboard');
     Route::get('/inicial', function () {
         return view('front.inicial');
     })->name('inicial');
-    Route::get('segundo',ConfiguracionesComponent::class)->name('segundo');
+    Route::get('configuraciones',ConfiguracionesComponent::class)->name('configuraciones');
 });
 
 Route::middleware(['auth:sanctum', 'verified', 'permission:manage users'])
